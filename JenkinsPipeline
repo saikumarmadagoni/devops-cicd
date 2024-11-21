@@ -16,6 +16,8 @@ pipeline {
 node("master"){
 
         def pipeline = load "pipeline.groovy"
+        
+        echo pipeline
         pipeline.checkout()
         pipeline.sonarscan()
 
