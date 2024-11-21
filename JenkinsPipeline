@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('test') {
           steps {
-              sh 'ls'
+              def pipeline = load pipeline.groovy
+              pipeline.checkout()
+              pipeline.sonarscan()
           }
         }
 
