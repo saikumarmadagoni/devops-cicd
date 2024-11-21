@@ -20,10 +20,11 @@ def sonarscan(){
    }
       dir(env.svc_name){ 
        sh 'whoami'
+       withMaven(maven: 'mvn') {
        sh 'mvn --version'
       
      sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=spring-svc -Dsonar.projectName='spring-svc' -Dsonar.host.url=http://localhost:9000'
-      
+       }
        }
       }
   }
