@@ -19,9 +19,9 @@ def sonarscan(){
     git branch:env.svc_branch ,url: "git@github.com:saikumarmadagoni/"+env.svc_name+".git" ,  credentialsId: "madagonitoken"
    }
     sh('cd '+env.svc_name)
-                 
-                 sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=spring-svc -Dsonar.projectName='spring-svc' -Dsonar.host.url=http://localhost:9000'
-              }
+     sh('ls -ltrh')     
+     sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=spring-svc -Dsonar.projectName='spring-svc' -Dsonar.host.url=http://localhost:9000'
+      }
   }
 
 
