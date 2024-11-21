@@ -1,17 +1,11 @@
 pipeline {
+    agent { label 'Built-In Node' }
+    stages {
+        stage('test') {
+          steps {
+              sh 'ls'
+          }
+        }
 
-agent  label "Built-In Node" 
-
-stages {
-
-stage(check) {
-
-sh echo "helloworld" 
-
+    }
 }
-}
-}
-
-
-
-
