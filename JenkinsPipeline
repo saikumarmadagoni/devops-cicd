@@ -1,6 +1,6 @@
 pipeline {
 
-agent { label "Built-In Node" {
+agent  label "Built-In Node" 
 
 stages {
 
@@ -11,8 +11,7 @@ sh echo "helloworld"
 }
 }
 }
-}
-}
+
 
 
 
