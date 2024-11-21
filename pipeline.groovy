@@ -17,3 +17,7 @@ def deploy(){
 
 
 }
+def qadeploy(){
+
+
+}
