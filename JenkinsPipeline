@@ -1,6 +1,6 @@
 pipeline {
 
-node(env.nodename) {
+agent { label "Built-In Node" {
 
 stages {
 
