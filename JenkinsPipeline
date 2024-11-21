@@ -14,9 +14,9 @@ pipeline {
 } */
 
 node("master"){
-    stage("cicd"){
-        def pipeline = load("pipeline.groovy")
+
+        def pipeline = load "pipeline.groovy"
         pipeline.checkout()
         pipeline.sonarscan()
-    }
+
 }
