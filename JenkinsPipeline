@@ -15,7 +15,11 @@ pipeline {
 
 node("master"){
 
-        def pipeline = load "pipeline.groovy"
+        dir("devops-cicd") {
+            git branch: "main", url: "git@github.com:saikumarmadagoni/s3-static-host-app.git",  credentialsId: "madagonitoken"                
+        }
+
+        def pipeline = load "devops-cicd/pipeline.groovy"
         
         echo pipeline
         pipeline.checkout()
