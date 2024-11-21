@@ -7,7 +7,7 @@ def checkout(){
   }
  }
 }
-
+/*
 def sonarscan(){
  stage("sonarscan"){
 
@@ -33,6 +33,7 @@ def sonarscan(){
  }
 
 }
+*/
 
 def build(){
 
