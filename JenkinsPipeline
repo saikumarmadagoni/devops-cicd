@@ -20,8 +20,6 @@ node("master"){
         }
 
         def pipeline = load "devops-cicd/pipeline.groovy"
-        
-        echo pipeline
         pipeline.checkout()
         pipeline.sonarscan()
 
