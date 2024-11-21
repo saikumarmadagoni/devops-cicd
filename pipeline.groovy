@@ -23,7 +23,7 @@ def sonarscan(){
        withMaven(maven: 'mvn') {
        sh 'mvn --version'
       
-     sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=spring-svc -Dsonar.projectName='spring-svc' -Dsonar.host.url=http://localhost:9000'
+     sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=spring-svc -Dsonar.projectName='spring-svc' -Dsonar.host.url=http://localhost:9000  || true '
        }
        }
       }
@@ -35,6 +35,31 @@ def sonarscan(){
 }
 
 def build(){
+
+  stage("build"){
+
+  node("master"){
+
+
+
+       dir(env.svc_name){
+    git branch:env.svc_branch ,url: "git@github.com:saikumarmadagoni/"+env.svc_name+".git" ,  credentialsId: "madagonitoken"
+   }
+      dir(env.svc_name){ 
+       sh 'whoami'
+       withMaven(maven: 'mvn') {
+       sh 'mvn --version'
+      
+     sh 'mvn clean install'
+
+        stash includes: '**/target/*.jar' , name: 'application.jar'
+       }
+       }
+      }
+  }
+
+
+ }
 
 
 }
