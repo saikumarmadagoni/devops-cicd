@@ -16,7 +16,7 @@ pipeline {
 node("master"){
 
         dir("devops-cicd") {
-            git branch: "main", url: "git@github.com:saikumarmadagoni/s3-static-host-app.git",  credentialsId: "madagonitoken"                
+            git branch: "main", url: "git@github.com:saikumarmadagoni/devops-cicd.git",  credentialsId: "madagonitoken"                
         }
 
         def pipeline = load "devops-cicd/pipeline.groovy"
