@@ -1,0 +1,17 @@
+pipeline {
+
+node(env.nodename) {
+
+stages {
+
+stage(check) {
+
+sh echo "helloworld" 
+
+}
+}
+}
+}
+
+
+
