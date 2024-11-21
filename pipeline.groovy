@@ -9,7 +9,14 @@ def checkout(){
 }
 
 def sonarscan(){
-  println 'Hello from example1'
+ stage("sonarscan"){
+
+   withSonarQubeEnv('My SonarQube Server') {
+                 sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=spring-svc -Dsonar.projectName='spring-svc' -Dsonar.host.url=http://localhost:9000'
+              }
+
+
+ }
 
 }
 
