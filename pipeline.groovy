@@ -4,16 +4,8 @@ def checkout(){
    dir(env.svc_name){
     git branch:env.svc_branch ,url: "git@github.com:saikumarmadagoni/"+env.svc_name+".git" ,  credentialsId: "madagonitoken"
    }
-  
-
-
   }
-
-
  }
- 
- 
-
 }
 
 def sonarscan(){
