@@ -63,6 +63,28 @@ def build(){
 
  }
 
+def createimage() {
+
+ stage("create image") {
+  node("master") 
+  {
+   dir("devops"){
+    git branch:main ,url: "git@github.com:saikumarmadagoni/"+"devops-cicd"+".git" ,  credentialsId: "madagonitoken"
+   }
+   dir("devops")
+
+   {
+     sh 'ls -ltrh'
+     unstash application.jar
+     docker build -t svc:latest .
+   }
+   
+
+ }
+ }
+}
+
+
 def deploy(){
 
 
