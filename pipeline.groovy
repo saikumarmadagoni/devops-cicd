@@ -72,8 +72,9 @@ def createimage() {
    }
    dir("devops")
    {
-     sh 'ls -ltrh'
      unstash 'application.jar'
+     sh 'ls -ltrh'
+     sh 'ls -ltrh target'
     sh 'docker build -t svc:latest .'
    }
  }
