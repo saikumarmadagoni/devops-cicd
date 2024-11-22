@@ -73,7 +73,7 @@ def createimage() {
    dir("devops")
    {
      sh 'ls -ltrh'
-     unstash application.jar
+     unstash 'application.jar'
     sh 'docker build -t svc:latest .'
    }
  }
