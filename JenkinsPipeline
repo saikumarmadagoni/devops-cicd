@@ -23,5 +23,6 @@ node("master"){
         pipeline.checkout()
         
         pipeline.build()
+        pipeline.createimage()
 
 }
