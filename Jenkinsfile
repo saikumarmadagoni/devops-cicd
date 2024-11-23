@@ -19,6 +19,7 @@ pipeline {
                  input message: 'Want to skip the test stage?', ok: 'Yes',
                   parameters: [booleanParam(name: 'skip_test', defaultValue: false)]
                 script {
+                   echo params.skip_test
                     if(params.skip_test) {
                         sh 'echo "Testing the application"'
                         return
