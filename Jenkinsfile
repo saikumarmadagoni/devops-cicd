@@ -16,9 +16,10 @@ pipeline {
         }
         stage('Test') {
             steps {
-                 input message: 'Want to skip the test stage?', ok: 'Yes',
-                  parameters: [booleanParam(name: 'skip_test', defaultValue: false)]
+                 
                 script {
+                  input message: 'Want to skip the test stage?', ok: 'Yes',
+                  parameters: [booleanParam(name: 'skip_test', defaultValue: false)]
                    echo params.skip_test
                    echo env.skip_test
                    echo env.MY_BOOLEAN_PARAM
