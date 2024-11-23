@@ -31,7 +31,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    echo "Deploying to ${DEPLOY_ENV} environment..."
+                    echo "Deploying to ${env.DEPLOY_ENV} environment..."
                     // Simulate deployment
                     sh 'sleep 2'
                 }
