@@ -85,7 +85,7 @@ def createimage() {
 def deploy(){
  stage("run image") {
   node("master")  {
-      sh 'docker run svc:latest' 
+      sh 'docker run -d svc:latest' 
 
   }
 
