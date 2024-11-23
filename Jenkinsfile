@@ -10,7 +10,8 @@ pipeline {
         stage('Test') {
             steps {
                 input message: 'Want to skip the test stage?', ok: 'Yes',
-                  parameters: [booleanParam(name: 'skip_test', defaultValue: false)], timeout: time(minutes: 5))
+     booleanParam(name: 'skip_test', defaultValue: false, description: 'Set to true to skip the test stage')
+                  parameters: { [booleanParam(name: 'skip_test', defaultValue: false)], timeout: time(minutes: 5) }
                 script {
                     if(params.skip_test) {
                         sh 'echo "Testing the application"'
