@@ -1,8 +1,13 @@
 def checkout(){
  stage("checkout"){
   node("master"){
+   
    dir(env.svc_name){
     git branch:env.svc_branch ,url: "git@github.com:saikumarmadagoni/"+env.svc_name+".git" ,  credentialsId: "madagonitoken"
+   }
+   dir(env.svc_name) {
+    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+
    }
   }
  }
