@@ -20,6 +20,8 @@ pipeline {
                   parameters: [booleanParam(name: 'skip_test', defaultValue: false)]
                 script {
                    echo params.skip_test
+                   echo env.skip_test
+                   echo env.MY_BOOLEAN_PARAM
                     if(params.skip_test) {
                         sh 'echo "Testing the application"'
                         return
