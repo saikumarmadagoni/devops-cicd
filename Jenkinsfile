@@ -1,40 +1,40 @@
 pipeline {
-      parameters {
-        booleanParam(
-          defaultValue: true,
-          description: 'This is a boolean parameter',
-          name: 'MY_BOOLEAN_PARAM'
-        )
-      }
     agent any
     stages {
         stage('Build') {
             steps {
-                sh 'echo "Building the application"'
-                // Add steps to build the application
+                echo 'Building the project...'
+                // Simulate build
+                sh 'sleep 2'
             }
         }
         stage('Test') {
             steps {
-                 
+                echo 'Running tests...'
+                // Simulate testing
+                sh 'sleep 2'
+            }
+        }
+        stage('Deploy Approval') {
+            steps {
                 script {
-                  input message: 'Want to skip the test stage?', ok: 'Yes',
-                  parameters: [booleanParam(name: 'skip_test', defaultValue: false)]
-                   echo params.skip_test
-                   echo env.skip_test
-                   echo env.MY_BOOLEAN_PARAM
-                    if(params.skip_test) {
-                        sh 'echo "Testing the application"'
-                        return
-                    }
+                    // Prompt user for input during the pipeline
+                    def userInput = input message: 'Approve deployment?',
+                        parameters: [
+                            string(name: 'DEPLOY_ENV', defaultValue: 'dev', description: 'Enter the environment (e.g., dev, staging, prod)')
+                        ]
+                    // Use the input parameter
+                    echo "Deployment approved for environment: ${userInput}"
                 }
-                // Add steps to test the application
             }
         }
         stage('Deploy') {
             steps {
-                sh 'echo "Deploying the application"'
-                // Add steps to deploy the application
+                script {
+                    echo "Deploying to ${DEPLOY_ENV} environment..."
+                    // Simulate deployment
+                    sh 'sleep 2'
+                }
             }
         }
     }
