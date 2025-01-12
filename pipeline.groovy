@@ -7,7 +7,7 @@ def checkout(){
    }
    dir(env.svc_name) {
     sh 'ls -ltrh'
-    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+   // publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
 
    }
   }
