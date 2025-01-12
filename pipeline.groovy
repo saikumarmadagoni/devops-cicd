@@ -52,17 +52,19 @@ def build(){
        dir(env.svc_name){
     git branch:env.svc_branch ,url: "git@github.com:saikumarmadagoni/"+env.svc_name+".git" ,  credentialsId: "madagonitoken"
    }
-   echo "completed the git pull"
-      dir(env.svc_name){ 
-       sh 'whoami'
-       withMaven(maven: 'mvn') {
-       sh 'mvn --version'
-      
-     sh 'mvn clean install'
+   echo "maven build"
 
-        stash includes: '**/target/*.jar' , name: 'application.jar'
-       }
-       }
+   dir(env.svc_name) {
+    docker.image('maven:3.5){ c->
+         echo "in the mvn build"
+         sh "ls -ltrh"
+
+                 }
+
+
+   }
+   
+
       }
   }
 
