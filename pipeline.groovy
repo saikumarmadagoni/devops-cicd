@@ -55,7 +55,7 @@ def build(){
    echo "maven build"
 
    dir(env.svc_name) {
-    docker.image('maven:3.5){ c->
+    docker.image('maven:3.5'){ c->
          echo "in the mvn build"
          sh "ls -ltrh"
 
