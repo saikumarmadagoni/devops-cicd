@@ -3,7 +3,7 @@
   become: true
   vars:
     platform: jenkins
-  gather_facts: true
+  gather_facts: no
   tasks:
       -  name: Add ppa repository
          become: yes
@@ -41,5 +41,5 @@
           dest: var/www/html/index/index.html
       - name: debugging
         debug:
-          msg: "the plaform is {{ platform }} and facts are {{ ansible_facts }} "
+          msg: "the plaform is {{ platform }} "
         
