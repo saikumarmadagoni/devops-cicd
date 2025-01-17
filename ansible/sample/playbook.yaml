@@ -42,3 +42,7 @@
           copy: 
               src: /etc/ansible/index/index.html
               dest: var/www/html/index/index.html
+      - name: debugging
+        debug:
+          msg: "the plaform is {{ platform }} and facts are {{ ansible_facts }} "
+        
