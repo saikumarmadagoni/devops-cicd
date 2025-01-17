@@ -14,6 +14,7 @@ steps {
        script {
          sh "ls -ltrh"
         }
+       ansiblePlaybook disableHostKeyChecking: true,installation: 'Ansible',inventory: 'ansible/sample/hosts.ini', playbook: 'ansible/sample/playook.yaml'
 
 }
 
