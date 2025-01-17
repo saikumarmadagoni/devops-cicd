@@ -11,7 +11,7 @@ agent any
 
 steps {
        checkout scm
-       scripts{
+       script {
          sh "ls -ltrh"
         }
 
