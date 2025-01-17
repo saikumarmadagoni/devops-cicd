@@ -1,27 +1,21 @@
-/*
 pipeline {
-    agent { label 'master' }
-    stages {
-        stage('test') {
-          steps {
-              def pipeline = load pipeline.groovy
-              pipeline.checkout()
-              pipeline.sonarscan()
-          }
+
+agent any 
+
+stages {
+
+
+
+stage("ansible"){
+agent any 
+
+steps {
+       checkout scm
+       scripts{
+         sh "ls -ltrh"
         }
 
-    }
-} */
+}
 
-node("master"){
-
-        dir("devops-cicd") {
-            git branch: "main", url: "git@github.com:saikumarmadagoni/devops-cicd.git",  credentialsId: "madagonitoken"                
-        }
-
-        def pipeline = load "devops-cicd/pipeline.groovy"
-        pipeline.checkout()        
-        pipeline.build()
-        pipeline.createimage()
-
+}
 }
