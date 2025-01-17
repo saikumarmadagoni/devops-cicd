@@ -13,6 +13,8 @@ steps {
        checkout scm
        script {
          sh "ls -ltrh"
+          sh "whoami"
+          sh "sudo ls"
         }
        ansiblePlaybook disableHostKeyChecking: true,installation: 'Ansible',inventory: 'ansible/sample/hosts.ini', playbook: 'ansible/sample/playbook.yaml'
 
