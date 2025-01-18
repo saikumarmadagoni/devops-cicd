@@ -18,7 +18,7 @@
               - php7.0
               - php7.0-mysql   
             state: present
-            update_cache: yes
+           # update_cache: yes
  
       -  name: start apache server
          become: yes
