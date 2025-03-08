@@ -48,6 +48,7 @@ def build(){
   node("master"){
 
        echo "entered the build"
+       currentBuild.result = "UNSTABLE"
 
        dir(env.svc_name){
     git branch:env.svc_branch ,url: "git@github.com:saikumarmadagoni/"+env.svc_name+".git" ,  credentialsId: "madagonitoken"
